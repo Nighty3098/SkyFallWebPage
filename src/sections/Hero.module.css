@@ -1,0 +1,179 @@
+.container {
+  height: 100dvh;
+  width: 100%;
+  padding: 10vh 10vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  scroll-snap-align: center;
+}
+
+.square {
+  height: 60vh;
+  width: 60vh;
+  aspect-ratio: 1;
+  position: relative;
+  z-index: 3;
+  overflow: hidden;
+}
+
+.squareImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.marqueeWrap {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.marqueeLight,
+.marqueeDark {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12.5vw;
+  letter-spacing: -0.05em;
+  font-weight: 600;
+  pointer-events: none;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marqueeLight {
+  clip-path: inset(0 0 0 0);
+  z-index: 3;
+  color: var(--wb50);
+  clip-path: inset(
+    calc(50% - 30vh) calc(50% - 30vh) calc(50% - 30vh) calc(50% - 30vh)
+  );
+  transition: clip-path 0.5s ease-out;
+}
+
+.marqueeDark {
+  color: var(--wb950);
+  z-index: 2;
+}
+
+.track {
+  display: flex;
+  flex-wrap: nowrap;
+  width: max-content;
+  will-change: transform;
+  transform: translateX(0);
+}
+
+.unit {
+  flex: none;
+  padding-right: 15px;
+}
+
+.hoverZone {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 11vw;
+  z-index: 5;
+  pointer-events: auto;
+  background: transparent;
+}
+
+.identity {
+  position: absolute;
+  bottom: 15dvh;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.925em;
+  font-weight: 200;
+  letter-spacing: 0.04em;
+  color: var(--wb950);
+  opacity: 0.4;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 6;
+}
+
+.topbar {
+  position: absolute;
+  top: 15dvh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.925em;
+  font-weight: 200;
+  letter-spacing: 0.04em;
+  color: var(--wb950);
+  z-index: 6;
+  pointer-events: none;
+}
+
+.clock {
+  opacity: 0.4;
+  font-variant-numeric: tabular-nums;
+}
+
+.tag {
+  opacity: 0.4;
+  text-transform: lowercase;
+}
+
+@media screen and (max-width: 1024px) {
+  .square {
+    height: 60vw;
+    width: 60vw;
+    font-size: 5vw;
+  }
+
+  .identity {
+    bottom: calc(50dvh - 30vw - 5dvh);
+  }
+
+  .topbar {
+    top: calc(50dvh - 30vw - 5dvh);
+    width: 60vw;
+  }
+
+  .marqueeLight {
+    font-size: 25vw;
+    clip-path: inset(
+      calc(50% - 30vw) calc(50% - 30vw) calc(50% - 30vw) calc(50% - 30vw)
+    );
+  }
+
+  .marqueeDark {
+    font-size: 25vw;
+  }
+
+  .hoverZone {
+    height: 28vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .marqueeLight {
+    font-size: 25vw;
+  }
+
+  .marqueeDark {
+    font-size: 25vw;
+  }
+
+  .hoverZone {
+    height: 12vw;
+  }
+}

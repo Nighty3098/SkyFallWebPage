@@ -1,0 +1,92 @@
+.section {
+  position: relative;
+  width: 100vw;
+  padding: 10vh 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4rem;
+  background: var(--wb50);
+}
+
+.context {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contextDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  text-align: center;
+  max-width: 600px;
+}
+
+.contextText {
+  font-size: 1.15em;
+  font-weight: 400;
+  color: var(--wb950);
+  line-height: 1.6;
+}
+
+.contactMe {
+  font-size: 1em;
+  font-weight: 200;
+  opacity: 0.5;
+  color: var(--wb950);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.actions {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+
+.actionBtn {
+  padding: 0.75em 2em;
+  font-size: 0.9em;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  font-family: var(--font-sans);
+  border: none;
+  background: var(--yellow500);
+  color: var(--wb50);
+  text-decoration: none;
+}
+
+.actionBtn:hover {
+  opacity: 0.85;
+}
+
+@media screen and (max-width: 1024px) {
+  .context {
+    gap: 0.5em;
+  }
+  .contextText {
+    font-size: 1.5em;
+  }
+  .contactMe {
+    font-size: 1.25em;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .contextText {
+    font-size: 1.25em;
+  }
+  .contactMe {
+    font-size: 1.15em;
+  }
+  .actions {
+    flex-direction: column;
+  }
+}

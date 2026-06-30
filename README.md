@@ -1,5 +1,7 @@
 # SkyFall — Presentation Page
 
+<img src="./public/Screenshot.png"/>
+
 Brand presentation website for [SkyFall](https://github.com/Nighty3098/SkyFall), an open-source OSINT platform built with PySide6.
 
 Built with Vite + React 18 + TypeScript.

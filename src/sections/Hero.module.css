@@ -9,12 +9,74 @@
   overflow: hidden;
 }
 
-.topbar {
+.square {
+  height: 60vh;
+  width: 60vh;
+  aspect-ratio: 1;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.squareImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.marqueeOverlay {
   position: absolute;
-  top: 12dvh;
+  left: 0;
+  width: 100vw;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 3;
+  mix-blend-mode: difference;
+}
+
+.track {
+  display: flex;
+  flex-wrap: nowrap;
+  width: max-content;
+  font-size: 9vw;
+  letter-spacing: -0.04em;
+  font-weight: 600;
+  white-space: nowrap;
+  color: #fff;
+  padding: 0.15em 0;
+}
+
+.unit {
+  flex: none;
+  padding-right: 15px;
+}
+
+.identity {
+  position: absolute;
+  bottom: 15dvh;
   left: 50%;
   transform: translateX(-50%);
-  width: min(60vh, calc(100vw - 20vw));
+  font-size: 0.925em;
+  font-weight: 200;
+  letter-spacing: 0.04em;
+  color: var(--wb950);
+  opacity: 0.4;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 6;
+}
+
+.topbar {
+  position: absolute;
+  top: 15dvh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -22,7 +84,7 @@
   font-weight: 200;
   letter-spacing: 0.04em;
   color: var(--wb950);
-  z-index: 10;
+  z-index: 6;
   pointer-events: none;
 }
 
@@ -31,192 +93,41 @@
   font-variant-numeric: tabular-nums;
 }
 
-.tagLabel {
+.tag {
   opacity: 0.4;
   text-transform: lowercase;
 }
 
-.svg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.synapse {
-  stroke: var(--wb600);
-  stroke-width: 0.6;
-  stroke-dasharray: 4000;
-  stroke-dashoffset: 4000;
-  opacity: 0.3;
-}
-
-.centerNode {
-  position: relative;
-  z-index: 5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0;
-  pointer-events: none;
-}
-
-.centerImage {
-  width: 18vh;
-  height: 18vh;
-  min-width: 110px;
-  min-height: 110px;
-  overflow: hidden;
-  border: 1.5px solid var(--wb950);
-  flex-shrink: 0;
-}
-
-.centerImage img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.centerImage::after {
-  content: '';
-  position: absolute;
-  inset: -50%;
-  background: radial-gradient(circle, rgba(0,0,0,0.04) 0%, transparent 70%);
-  z-index: -1;
-  pointer-events: none;
-}
-
-.centerText {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.4em;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #fff;
-  text-transform: uppercase;
-  white-space: nowrap;
-  mix-blend-mode: difference;
-  z-index: 6;
-}
-
-.neuralTag {
-  position: absolute;
-  z-index: 4;
-  transform: translate(-50%, -50%);
-  font-weight: 400;
-  font-size: 0.9em;
-  letter-spacing: 0.03em;
-  color: var(--wb600);
-  white-space: nowrap;
-  pointer-events: auto;
-  cursor: pointer;
-  transition: color 0.3s ease;
-  opacity: 0;
-  padding: 8px 10px;
-  background: var(--wb50);
-}
-
-.neuralTag:hover {
-  color: var(--wb950);
-}
-
-.preview {
-  position: fixed;
-  z-index: 50;
-  pointer-events: none;
-  overflow: hidden;
-  width: 240px;
-}
-
-.preview img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.identity {
-  position: absolute;
-  bottom: 12dvh;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 0.875em;
-  font-weight: 200;
-  letter-spacing: 0.04em;
-  color: var(--wb950);
-  opacity: 0.25;
-  white-space: nowrap;
-  pointer-events: none;
-  z-index: 10;
-}
-
 @media screen and (max-width: 1024px) {
-  .centerImage {
-    width: 14vh;
-    height: 14vh;
-    min-width: 80px;
-    min-height: 80px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .svg {
-    display: none;
-  }
-
-  .neuralTag {
-    display: none;
-  }
-
-  .centerImage {
-    width: 80vw;
-    height: 80vw;
-    min-width: 250px;
-    min-height: 250px;
-    max-width: 500px;
-    max-height: 500px;
-  }
-
-  .centerText {
-    font-size: 5em;
-  }
-
-  .topbar {
-    top: 8dvh;
-    font-size: 0.7em;
-    width: min(40vh, calc(100vw - 16vw));
+  .square {
+    height: 60vw;
+    width: 60vw;
   }
 
   .identity {
-    font-size: 0.65em;
-    bottom: 8dvh;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .centerImage {
-    width: 80vw;
-    height: 80vw;
-    min-width: 180px;
-    min-height: 180px;
-    max-width: 380px;
-    max-height: 380px;
-  }
-
-  .centerText {
-    font-size: 4em;
-  }
-
-  .neuralTag {
-    display: none;
+    bottom: calc(50dvh - 30vw - 5dvh);
   }
 
   .topbar {
-    font-size: 0.6em;
+    top: calc(50dvh - 30vw - 5dvh);
+    width: 60vw;
+  }
+
+  .track {
+    font-size: 14vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .track {
+    font-size: 14vw;
+  }
+
+  .identity {
+    font-size: 0.7em;
+  }
+
+  .topbar {
+    font-size: 0.75em;
   }
 }

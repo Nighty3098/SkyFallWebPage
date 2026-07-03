@@ -6,7 +6,7 @@ const BASE_SPEED = 120
 const SMOOTH = 6
 
 function Hero() {
-  const text = ' skyfall · osint · threat intel · reconnaissance · forensics · telegram osint · blockchain · github recon · '
+  const text = ' skyfall · osint · threat intel · reconnaissance · telegram osint · blockchain · github recon · '
 
   const containerRef = useRef<HTMLDivElement>(null)
   const trackRef = useRef<HTMLDivElement>(null)

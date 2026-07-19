@@ -10,7 +10,7 @@ export default function Footer() {
             <span className={styles.logoText}>SkyFall</span>
           </div>
           <p className={styles.desc}>
-            Open source intelligence platform for investigators, security
+            Intelligence platform for investigators, security
             teams, and threat researchers.
           </p>
         </div>

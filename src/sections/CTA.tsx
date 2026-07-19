@@ -7,7 +7,7 @@ export default function CTA() {
         <div className={styles.contextDiv}>
           <p className={styles.contextText}>
             Start collecting actionable intelligence in minutes.
-            Open source, extensible, and built for investigators.
+            Extensible, modular, and built for investigators.
           </p>
           <p className={styles.contactMe}>Get started</p>
         </div>

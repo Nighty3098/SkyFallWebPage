@@ -112,3 +112,28 @@
 
   --max-w: 1200px;
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --wb50: #0a0a0a;
+    --wb100: #141414;
+    --wb200: #1f1f1f;
+    --wb300: #3a3a3a;
+    --wb400: #888;
+    --wb500: #999;
+    --wb600: #aaa;
+    --wb700: #bbb;
+    --wb800: #ccc;
+    --wb900: #ddd;
+    --wb950: #eee;
+
+    --yellow500: #ffc829;
+    --blue500: #3dc9e8;
+    --green500: #38d45a;
+    --orange500: #ffa62b;
+    --red500: #f55a66;
+    --pink500: #f55a84;
+    --purple500: #b878ee;
+    --darkblue500: #3a9ef7;
+  }
+}

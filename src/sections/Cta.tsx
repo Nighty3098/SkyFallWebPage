@@ -1,6 +1,6 @@
-import styles from './CTA.module.css'
+import styles from './Cta.module.css'
 
-export default function CTA() {
+export default function Cta() {
   return (
     <section className={styles.section}>
       <div className={styles.context}>

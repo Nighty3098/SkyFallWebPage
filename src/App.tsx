@@ -3,7 +3,7 @@ import Hero from "@/sections/Hero";
 import NoiseOverlay from "@/components/Noise";
 import Features from "@/sections/Features";
 import Steps from "@/sections/Steps";
-import CTA from "@/sections/CTA";
+import Cta from "@/sections/Cta";
 import Footer from "@/sections/Footer";
 
 export default function App() {
@@ -12,7 +12,7 @@ export default function App() {
       <Hero />
       <Features />
       <Steps />
-      <CTA />
+      <Cta />
       <Footer />
       <NoiseOverlay />
     </SmoothScroll>

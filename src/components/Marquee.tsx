@@ -9,8 +9,8 @@ function prefersReducedMotion() {
 }
 
 interface MarqueeProps {
-  text: string
-  speed?: number
+  readonly text: string
+  readonly speed?: number
 }
 
 export default function Marquee({ text, speed = 240 }: MarqueeProps) {

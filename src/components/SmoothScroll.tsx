@@ -9,7 +9,7 @@ function prefersReducedMotion() {
     window.matchMedia('(prefers-reduced-motion: reduce)').matches
 }
 
-export default function SmoothScroll({ children }: { children: ReactNode }) {
+export default function SmoothScroll({ children }: { readonly children: ReactNode }) {
   useEffect(() => {
     if (prefersReducedMotion()) return
 

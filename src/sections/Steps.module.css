@@ -6,6 +6,20 @@
   justify-content: center;
   gap: 5vw;
   padding: 10vh 5vw;
+  position: relative;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60vw;
+  max-width: 800px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--blue500), transparent);
+  opacity: 0.2;
 }
 
 .content {
@@ -26,7 +40,7 @@
 .colItems {
   display: flex;
   flex-direction: column;
-  gap: 1.5em;
+  gap: 2em;
   font-size: 1em;
   font-weight: 300;
   line-height: 1.6;
@@ -35,31 +49,33 @@
 
 .item {
   display: flex;
-  gap: 1em;
+  gap: 1.25em;
   align-items: flex-start;
 }
 
 .itemNum {
   font-family: var(--font-mono);
-  font-size: 0.75em;
-  font-weight: 600;
+  font-size: 0.8em;
+  font-weight: 700;
   color: var(--blue500);
-  min-width: 2em;
+  min-width: 2.5em;
   padding-top: 0.15em;
+  opacity: 0.8;
 }
 
 .itemTitle {
   font-size: 1em;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--wb950);
-  margin-bottom: 0.25em;
+  margin-bottom: 0.3em;
+  letter-spacing: -0.01em;
 }
 
 .itemDesc {
-  font-size: 0.8em;
+  font-size: 0.85em;
   font-weight: 300;
   color: var(--wb600);
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 @media screen and (max-width: 600px) {

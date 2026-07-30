@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import styles from './Hero.module.css'
 
-const BASE_SPEED = 120
-const SMOOTH = 6
+const BASE_SPEED = 60
+const SMOOTH = 4
 
 function Hero() {
   const text = ' skyfall · osint · threat intel · reconnaissance · telegram osint · blockchain · github recon · '
@@ -89,6 +89,13 @@ function Hero() {
     }
   }, [])
 
+  useEffect(() => {
+    const identity = containerRef.current?.querySelector('[data-identity]')
+    if (!identity) return
+
+    gsap.fromTo(identity, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 1.2, ease: 'power3.out', delay: 0.3 })
+  }, [])
+
   const units = Array.from({ length: copies }, (_, i) => (
     <span key={i} data-unit className={styles.unit}>
       {text}
@@ -99,20 +106,13 @@ function Hero() {
     <section className={styles.container} ref={containerRef}>
       <div className={styles.spotlight} ref={spotlightRef} />
 
-      <div className={styles.topbar}>
-        <span className={styles.clock}>SkyFall</span>
-        <span className={styles.tag}>osint platform</span>
-      </div>
-
-
-
       <div className={styles.marqueeOverlay}>
         <div className={styles.track} ref={trackRef}>
           {units}
         </div>
       </div>
 
-      <p className={styles.identity}>OSINT Intelligence Platform</p>
+      <p className={styles.identity} data-identity>SkyFall</p>
     </section>
   )
 }

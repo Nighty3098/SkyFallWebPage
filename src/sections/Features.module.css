@@ -39,17 +39,6 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-
-
-  overflow: hidden;
-  background: var(--wb50);
-}
-
-.workImg {
-  width: 100%;
-  overflow: hidden;
-  background: var(--wb100);
-  line-height: 0;
 }
 
 .screenshot {
@@ -67,9 +56,10 @@
 }
 
 .workName {
-  font-size: 1.1em;
-  font-weight: 500;
+  font-size: 1.15em;
+  font-weight: 600;
   color: var(--wb950);
+  letter-spacing: -0.02em;
 }
 
 .workDesc {

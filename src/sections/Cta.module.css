@@ -1,13 +1,26 @@
 .section {
   position: relative;
   width: 100vw;
-  padding: 10vh 5vw;
+  padding: 12vh 5vw;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 4rem;
   background: var(--wb50);
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60vw;
+  max-width: 800px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--blue500), transparent);
+  opacity: 0.2;
 }
 
 .context {
@@ -24,23 +37,24 @@
   justify-content: center;
   gap: 2rem;
   text-align: center;
-  max-width: 600px;
+  max-width: 700px;
 }
 
 .contextText {
-  font-size: 1.15em;
+  font-size: clamp(1.5em, 3vw, 2.5em);
   font-weight: 400;
   color: var(--wb950);
-  line-height: 1.6;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
 }
 
 .contactMe {
-  font-size: 1em;
+  font-size: 0.85em;
   font-weight: 200;
-  opacity: 0.5;
+  opacity: 0.4;
   color: var(--wb950);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1em;
 }
 
 .actions {
@@ -50,21 +64,24 @@
 }
 
 .actionBtn {
-  padding: 0.75em 2em;
-  font-size: 0.9em;
+  padding: 1em 3em;
+  font-size: 0.95em;
   font-weight: 500;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
   cursor: pointer;
-  transition: opacity 0.2s ease;
   font-family: var(--font-sans);
-  border: none;
-  background: var(--blue500);
-  color: var(--wb50);
+  border: 1px solid var(--blue500);
+  background: transparent;
+  color: var(--blue500);
   text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s, box-shadow 0.3s, color 0.3s;
 }
 
 .actionBtn:hover {
-  opacity: 0.85;
+  background: var(--blue500);
+  color: var(--wb50);
+  box-shadow: 0 0 24px -4px rgba(61, 201, 232, 0.3);
 }
 
 @media screen and (max-width: 1024px) {

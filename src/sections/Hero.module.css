@@ -7,6 +7,32 @@
   position: relative;
   scroll-snap-align: center;
   overflow: hidden;
+  background: url('/bg_1.png') center / cover no-repeat;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%);
+}
+
+.spotlight {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: url('/bg_2.png') center / cover no-repeat;
+  mask-image: radial-gradient(
+    ellipse var(--rx, 300px) var(--ry, 240px) at var(--mx, 50%) var(--my, 50%),
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,0.85) 25%,
+    rgba(0,0,0,0.4) 55%,
+    rgba(0,0,0,0) 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse var(--rx, 300px) var(--ry, 240px) at var(--mx, 50%) var(--my, 50%),
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,0.85) 25%,
+    rgba(0,0,0,0.4) 55%,
+    rgba(0,0,0,0) 100%
+  );
+  will-change: mask-image, -webkit-mask-image;
 }
 
 .square {
@@ -36,7 +62,7 @@
   overflow: hidden;
   pointer-events: none;
   z-index: 3;
-  mix-blend-mode: difference;
+
 }
 
 .track {
@@ -47,7 +73,7 @@
   letter-spacing: -0.04em;
   font-weight: 600;
   white-space: nowrap;
-  color: #fff;
+  color: var(--fg);
   padding: 0.15em 0;
 }
 

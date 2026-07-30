@@ -58,7 +58,7 @@
   transition: opacity 0.2s ease;
   font-family: var(--font-sans);
   border: none;
-  background: var(--yellow500);
+  background: var(--blue500);
   color: var(--wb50);
   text-decoration: none;
 }

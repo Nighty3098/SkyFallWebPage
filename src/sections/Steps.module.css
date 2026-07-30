@@ -43,7 +43,7 @@
   font-family: var(--font-mono);
   font-size: 0.75em;
   font-weight: 600;
-  color: var(--yellow500);
+  color: var(--blue500);
   min-width: 2em;
   padding-top: 0.15em;
 }

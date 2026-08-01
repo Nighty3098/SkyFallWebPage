@@ -1,6 +1,5 @@
 import SmoothScroll from "@/components/SmoothScroll";
 import Hero from "@/sections/Hero";
-import NoiseOverlay from "@/components/Noise";
 import Features from "@/sections/Features";
 import Steps from "@/sections/Steps";
 import Cta from "@/sections/Cta";
@@ -14,7 +13,6 @@ export default function App() {
       <Steps />
       <Cta />
       <Footer />
-      <NoiseOverlay />
     </SmoothScroll>
   );
 }

@@ -11,6 +11,8 @@ html {
   width: 100vw;
   overflow-x: hidden;
   scroll-behavior: auto !important;
+  scrollbar-width: thin;
+  scrollbar-color: var(--wb300) var(--wb50);
 }
 
 ::-webkit-scrollbar {

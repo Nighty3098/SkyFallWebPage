@@ -1,110 +1,149 @@
 .section {
-  min-height: 50vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5vw;
-  padding: 10vh 5vw;
   position: relative;
+  padding: 7rem 1.5rem;
+  width: 100%;
 }
 
-.section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60vw;
-  max-width: 800px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--blue500), transparent);
-  opacity: 0.2;
-}
-
-.content {
-  width: 30vw;
+.header {
+  max-width: var(--max-w);
+  margin: 0 auto 2.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5em;
-}
-
-.colTitle {
-  font-size: 0.875em;
-  opacity: 0.5;
-  font-weight: 200;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-.colItems {
-  display: flex;
-  flex-direction: column;
-  gap: 2em;
-  font-size: 1em;
-  font-weight: 300;
-  line-height: 1.6;
-  color: var(--wb600);
-}
-
-.item {
-  display: flex;
-  gap: 1.25em;
   align-items: flex-start;
+  gap: 1rem;
 }
 
-.itemNum {
+.title {
+  margin: 0;
+}
+
+.list {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr auto auto;
+  gap: 1.5rem;
+  align-items: start;
+  padding: 2rem 0.5rem;
+  border-top: 1px solid var(--line);
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.step:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.step:hover {
+  background: linear-gradient(90deg, color-mix(in srgb, var(--accent, #fff) 4%, transparent), transparent 55%);
+}
+
+.num {
   font-family: var(--font-mono);
-  font-size: 0.8em;
-  font-weight: 700;
-  color: var(--blue500);
-  min-width: 2.5em;
-  padding-top: 0.15em;
-  opacity: 0.8;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--fg-dim);
+  padding-top: 0.2rem;
+  transition: color 0.3s;
 }
 
-.itemTitle {
-  font-size: 1em;
-  font-weight: 500;
-  color: var(--wb950);
-  margin-bottom: 0.3em;
-  letter-spacing: -0.01em;
+.step:hover .num {
+  color: var(--accent);
 }
 
-.itemDesc {
-  font-size: 0.85em;
-  font-weight: 300;
-  color: var(--wb600);
-  line-height: 1.6;
+.mid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 52ch;
 }
 
-@media screen and (max-width: 600px) {
-  .section {
-    flex-direction: column;
-    gap: 2rem;
-    padding: 5vh 6vw;
+.stepTitle {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--fg-bright);
+  margin: 0;
+}
+
+.stepDesc {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--fg-muted);
+  margin: 0;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: flex-end;
+  padding-top: 0.3rem;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.28rem 0.6rem;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.step:hover .tag {
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent, #fff) 40%, transparent);
+}
+
+.arrow {
+  font-size: 1.3rem;
+  color: var(--fg-dim);
+  padding-top: 0.35rem;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.step:hover .arrow {
+  transform: translateX(4px);
+  color: var(--accent);
+}
+
+@media screen and (max-width: 800px) {
+  .step {
+    grid-template-columns: 3.5rem 1fr;
+    grid-template-areas:
+      'num mid'
+      'num tags';
+    gap: 0.8rem 1.2rem;
   }
-  .content {
-    width: 100%;
+
+  .arrow {
+    display: none;
   }
-  .colTitle {
-    font-size: 0.75em;
+
+  .tags {
+    justify-content: flex-start;
   }
-  .colItems {
-    font-size: 0.95em;
-    gap: 1.25em;
+}
+
+@media screen and (max-width: 560px) {
+  .step {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'num'
+      'mid'
+      'tags';
   }
-  .item {
-    gap: 0.75em;
-  }
-  .itemNum {
-    font-size: 0.65em;
-    min-width: 1.5em;
-  }
-  .itemTitle {
-    font-size: 0.95em;
-  }
-  .itemDesc {
-    font-size: 0.85em;
+
+  .stepTitle {
+    font-size: 1.4rem;
   }
 }

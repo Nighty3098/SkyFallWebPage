@@ -1,29 +1,43 @@
 :root {
-  --wb50: #0d131b;
-  --wb100: #131c2a;
-  --wb200: #1a2532;
-  --wb300: #253141;
-  --wb400: #3a445b;
-  --wb500: #51586c;
-  --wb600: #6d7389;
-  --wb700: #7c8397;
-  --wb800: #8f95a5;
-  --wb900: #a8adb8;
-  --wb950: #e0e2e6;
+  /* nightfly base */
+  --nf-bg: #011627;
+  --nf-bg-deep: #010a14;
+  --nf-bg-elevated: #0b2942;
+  --nf-bg-code: #020e1a;
+  --nf-border: #1d3b53;
+  --nf-border-soft: #123049;
 
-  --fg: #e0e2e6;
+  /* nightfly text */
+  --fg: #bdc1c6;
+  --fg-bright: #eeeeee;
+  --fg-muted: #7c8f8f;
+  --fg-dim: #5b7186;
 
-  --yellow500: #ffc829;
-  --blue500: #3dc9e8;
-  --green500: #38d45a;
-  --orange500: #ffa62b;
-  --red500: #f55a66;
-  --pink500: #f55a84;
-  --purple500: #b878ee;
-  --darkblue500: #3a9ef7;
+  /* nightfly accents */
+  --nf-blue: #82aaff;
+  --nf-cyan: #7fdbca;
+  --nf-green: #a1cd5e;
+  --nf-yellow: #e3d18a;
+  --nf-orange: #f78c6c;
+  --nf-red: #fc514e;
+  --nf-purple: #c792ea;
+  --nf-pink: #ff5874;
+  --nf-white: #d6deeb;
 
+  /* structural tokens */
+  --lime: #a1cd5e;
+  --washed-green: #a1cd5e;
+  --periwinkle: #82aaff;
+  --teal-panel: #0b2942;
+  --ink: #011627;
+  --card: rgba(11, 41, 66, 0.78);
+  --card-solid: #0a2740;
+  --line: rgba(255, 255, 255, 0.09);
+  --line-soft: rgba(255, 255, 255, 0.05);
+
+  --font-display: "Space Grotesk", system-ui, sans-serif;
   --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  --max-w: 1200px;
+  --max-w: 1160px;
 }

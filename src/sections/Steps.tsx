@@ -1,34 +1,64 @@
+import type { CSSProperties } from 'react'
 import styles from './Steps.module.css'
 
 const steps = [
-  { num: '01', title: 'Collection', desc: 'Distributed data collection across domains, IPs, Telegram channels, GitHub repositories, and blockchain networks.' },
-  { num: '02', title: 'Analysis', desc: 'Correlation engine cross-references findings, builds relationship graphs, and scores confidence across linked entities.' },
-  { num: '03', title: 'Dissemination', desc: 'Export intelligence via interactive graphs, HTML reports, and CSV — all through the Qt desktop interface.' },
+  {
+    n: '01',
+    title: 'Collect',
+    accent: 'var(--nf-cyan)',
+    desc: 'Start with any lead — username, phone, email, domain, or wallet. SkyFall fans out across 15 modules.',
+    tags: ['username', 'phone', 'email', 'domain', 'crypto'],
+  },
+  {
+    n: '02',
+    title: 'Correlate',
+    accent: 'var(--nf-blue)',
+    desc: 'Raw findings merge into a unified case graph. Entities link automatically across services and networks.',
+    tags: ['graph', 'entities', 'relations'],
+  },
+  {
+    n: '03',
+    title: 'Analyze',
+    accent: 'var(--nf-purple)',
+    desc: 'Run dorks, scan for secrets, trace transactions, and inspect files. Each module feeds structured evidence back.',
+    tags: ['dorks', 'secrets', 'ledger'],
+  },
+  {
+    n: '04',
+    title: 'Report',
+    accent: 'var(--lime)',
+    desc: 'Export a clean intelligence report — or let local Ollama write it for you. Data never leaves your machine.',
+    tags: ['ollama', 'pdf', 'json'],
+  },
 ]
 
 export default function Steps() {
   return (
-    <section className={styles.section}>
-      <div className={styles.content}>
-        <p className={styles.colTitle}>How it works</p>
-        <p className={styles.colItems}>
-          Three layers of intelligence gathering, correlated into a single operational picture.
-        </p>
-      </div>
+    <section className={styles.section} id="workflow">
+      <header className={styles.header}>
+        <h2 className={`section-title ${styles.title}`}>From lead to report.</h2>
+      </header>
 
-      <div className={styles.content}>
-        <p className={styles.colTitle}>The process</p>
-        <div className={styles.colItems}>
-          {steps.map((s) => (
-            <div key={s.num} className={styles.item}>
-              <span className={styles.itemNum}>{s.num}</span>
-              <div>
-                <h3 className={styles.itemTitle}>{s.title}</h3>
-                <p className={styles.itemDesc}>{s.desc}</p>
-              </div>
+      <div className={styles.list}>
+        {steps.map((s) => (
+          <article key={s.n} className={styles.step} style={{ '--accent': s.accent } as CSSProperties}>
+            <span className={styles.num}>{s.n}</span>
+            <div className={styles.mid}>
+              <h3 className={styles.stepTitle}>{s.title}</h3>
+              <p className={styles.stepDesc}>{s.desc}</p>
             </div>
-          ))}
-        </div>
+            <div className={styles.tags}>
+              {s.tags.map((t) => (
+                <span key={t} className={styles.tag}>
+                  {t}
+                </span>
+              ))}
+            </div>
+            <span className={styles.arrow} aria-hidden="true">
+              →
+            </span>
+          </article>
+        ))}
       </div>
     </section>
   )

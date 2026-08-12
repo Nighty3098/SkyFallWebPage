@@ -6,19 +6,28 @@ export default function Footer() {
       <div className={styles.inner}>
         <div className={styles.brand}>
           <div className={styles.logo}>
-            <img src="/skyfall.jpg" alt="SkyFall" className={styles.logoImg} />
-            <span className={styles.logoText}>SkyFall</span>
+            <span className={styles.logoMark} />
+            <span className={styles.logoText}>skyfall</span>
           </div>
           <p className={styles.desc}>
-            Intelligence platform for investigators, security
-            teams, and threat researchers.
+            Open-source OSINT investigation toolkit.
+            <br />
+            Coded by <a href="https://t.me/Night3098" className={styles.link}>Nighty3098</a>.
           </p>
         </div>
-        <div className={styles.copy}>
-          <span>&copy; 2026 SkyFall Project. All rights reserved.</span>
+
+        <div className={styles.bottom}>
+          <span>&copy; 2026 SkyFall Project. MIT licensed.</span>
           <div className={styles.socials}>
-            <a href="https://github.com/Nighty3098">GitHub</a>
-            <a href="https://t.me/Night3098">Telegram</a>
+            <a href="https://github.com/Nighty3098" className={styles.social}>
+              github
+            </a>
+            <a href="https://t.me/Night3098" className={styles.social}>
+              telegram
+            </a>
+            <a href="https://nighty3098.vercel.app" className={styles.social}>
+              website
+            </a>
           </div>
         </div>
       </div>

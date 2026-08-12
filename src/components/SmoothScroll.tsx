@@ -9,9 +9,15 @@ function prefersReducedMotion() {
     window.matchMedia('(prefers-reduced-motion: reduce)').matches
 }
 
+function isDesktop() {
+  return typeof window !== 'undefined' &&
+    typeof window.matchMedia === 'function' &&
+    window.matchMedia('(min-width: 1024px) and (pointer: fine)').matches
+}
+
 export default function SmoothScroll({ children }: { readonly children: ReactNode }) {
   useEffect(() => {
-    if (prefersReducedMotion()) return
+    if (prefersReducedMotion() || !isDesktop()) return
 
     const lenis = new Lenis({
       lerp: 0.045,

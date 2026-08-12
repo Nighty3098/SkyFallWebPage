@@ -1,0 +1,153 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: background-color 0.3s, border-color 0.3s;
+  border-bottom: 1px solid transparent;
+}
+
+.scrolled {
+  background-color: rgba(6, 10, 18, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom-color: var(--line);
+}
+
+.inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 1.1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.logoMark {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background: var(--lime);
+  position: relative;
+  overflow: hidden;
+  flex: none;
+}
+
+.logoMark::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border-radius: 3px;
+  background: var(--nf-bg);
+}
+
+.logoText {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--fg-bright);
+}
+
+.links {
+  display: flex;
+  gap: 2.4rem;
+}
+
+.link {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--fg-muted);
+  position: relative;
+  transition: color 0.2s;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 1px;
+  width: 0;
+  background: linear-gradient(to right, var(--lime), var(--nf-cyan));
+  transition: width 0.3s;
+}
+
+.link:hover {
+  color: var(--fg-bright);
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.gh {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--fg-muted);
+  padding: 0.6rem 1.1rem;
+  border: 1px solid var(--line);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.gh:hover {
+  color: var(--nf-blue);
+  border-color: var(--nf-blue);
+}
+
+.tg {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--nf-bg);
+  background: var(--lime);
+  padding: 0.6rem 1.2rem;
+  transition: filter 0.2s, box-shadow 0.2s;
+}
+
+.tg:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 0 24px rgba(161, 205, 94, 0.4);
+}
+
+@media screen and (max-width: 760px) {
+  .links {
+    display: none;
+  }
+
+  .gh {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .inner {
+    padding: 1rem 1rem;
+  }
+}

@@ -1,77 +1,136 @@
 .section {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   position: relative;
-  padding: 10vh 0;
-  gap: 10vh;
+  padding: 7rem 1.5rem;
+  width: 100%;
 }
 
 .header {
-  text-align: center;
-  padding: 0 5vw;
+  max-width: var(--max-w);
+  margin: 0 auto 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
 .title {
-  font-size: clamp(2rem, 5vw, 4rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  margin-bottom: 0.5rem;
+  margin: 0;
 }
 
 .subtitle {
-  font-size: 0.9em;
-  font-weight: 300;
-  color: var(--wb500);
+  max-width: 44ch;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--fg-muted);
+  margin: 0;
 }
 
-.main {
-  width: 90vw;
-  max-width: 1200px;
+.grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2vw;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.9rem;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  grid-auto-flow: dense;
 }
 
-.work {
+.card {
+  background: transparent;
+  border: 1px solid var(--nf-border);
+  border-radius: 0;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  transition: border-color 0.3s;
 }
 
-.screenshot {
+.wide {
+  grid-column: span 2;
+}
+
+.graphic {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-bottom: 1px solid var(--nf-border);
+}
+
+.graphic::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--nf-bg);
+  opacity: 0.55;
+  transition: opacity 0.3s;
+}
+
+.graphic img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
+  filter: grayscale(0.75) brightness(0.55);
+  transform: scale(1.02);
+  transition: filter 0.4s, transform 0.4s;
 }
 
-.works {
-  padding: 1.5em;
+.card:hover {
+  border-color: color-mix(in srgb, var(--accent, var(--nf-border)) 60%, var(--nf-border));
+}
+
+.card:hover .graphic::after {
+  opacity: 0.2;
+}
+
+.card:hover .graphic img {
+  filter: grayscale(0.1) brightness(0.95);
+  transform: scale(1.06);
+}
+
+.body {
+  padding: 1.2rem 1.3rem 1.4rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
+  gap: 0.6rem;
 }
 
-.workName {
-  font-size: 1.15em;
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 1.18rem;
   font-weight: 600;
-  color: var(--wb950);
   letter-spacing: -0.02em;
+  color: var(--fg-bright);
+  margin: 0;
 }
 
-.workDesc {
-  font-size: 0.85em;
-  font-weight: 300;
-  color: var(--wb600);
+.cardDesc {
+  font-size: 0.88rem;
   line-height: 1.6;
+  color: var(--fg-muted);
+  margin: 0;
 }
 
-@media screen and (max-width: 768px) {
-  .main {
+@media screen and (max-width: 980px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .wide {
+    grid-column: span 2;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .section {
+    padding: 5rem 1rem;
+  }
+
+  .grid {
     grid-template-columns: 1fr;
-    gap: 4vw;
+  }
+
+  .wide {
+    grid-column: span 1;
   }
 }

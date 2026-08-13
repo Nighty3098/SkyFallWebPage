@@ -1,6 +1,6 @@
 # SkyFall — Presentation Page
 
-<img src="./public/Screenshot.png"/>
+<img alt="Screenshot 2026-08-13 at 18-48-23 SkyFall — OSINT Investigation Toolkit" src="https://github.com/user-attachments/assets/73443075-ee8d-44e0-a8e0-63df692e7477" />
 
 Brand presentation website for [SkyFall](https://github.com/Nighty3098/SkyFall), an open-source OSINT platform built with PySide6.
 

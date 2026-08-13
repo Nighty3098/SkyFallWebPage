@@ -33,9 +33,6 @@ export default function Nav() {
         </div>
 
         <div className={styles.actions}>
-          <a href="https://github.com/Nighty3098/SkyFall" className={styles.gh}>
-            GitHub
-          </a>
           <a href="https://t.me/Night3098" className={styles.tg}>
             Get access →
           </a>

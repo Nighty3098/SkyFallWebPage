@@ -10,18 +10,15 @@ export default function Footer() {
             <span className={styles.logoText}>skyfall</span>
           </div>
           <p className={styles.desc}>
-            Open-source OSINT investigation toolkit.
+            OSINT investigation toolkit.
             <br />
             Coded by <a href="https://t.me/Night3098" className={styles.link}>Nighty3098</a>.
           </p>
         </div>
 
         <div className={styles.bottom}>
-          <span>&copy; 2026 SkyFall Project. MIT licensed.</span>
+          <span>&copy; 2026 SkyFall Project.</span>
           <div className={styles.socials}>
-            <a href="https://github.com/Nighty3098" className={styles.social}>
-              github
-            </a>
             <a href="https://t.me/Night3098" className={styles.social}>
               telegram
             </a>

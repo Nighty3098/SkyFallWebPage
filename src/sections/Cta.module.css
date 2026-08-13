@@ -64,35 +64,6 @@
   justify-content: center;
 }
 
-.actionBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--nf-bg);
-  background: var(--lime);
-  border-radius: 0.6rem;
-  padding: 0.85rem 1.6rem;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.actionBtn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 34px -12px rgba(161, 205, 94, 0.55);
-}
-
-.btnArrow {
-  transition: transform 0.2s;
-}
-
-.actionBtn:hover .btnArrow {
-  transform: translateX(3px);
-}
-
 .actionTg {
   font-family: var(--font-mono);
   font-size: 0.78rem;

@@ -94,7 +94,7 @@
   text-transform: uppercase;
   color: var(--fg-dim);
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: 0;
   padding: 0.28rem 0.6rem;
   transition: color 0.3s, border-color 0.3s;
 }

@@ -63,8 +63,8 @@ function GraphSvg() {
       ))}
       {graphNodes.map((n) => (
         <g key={n.id}>
-          <circle cx={n.x} cy={n.y} r="16" fill="var(--card-solid)" stroke={n.color} strokeWidth="1.5" />
-          <circle cx={n.x} cy={n.y} r="4.5" fill={n.color} />
+          <rect x={n.x - 16} y={n.y - 16} width="32" height="32" fill="var(--card-solid)" stroke={n.color} strokeWidth="1.5" />
+          <rect x={n.x - 4.5} y={n.y - 4.5} width="9" height="9" fill={n.color} />
           <text
             x={n.x}
             y={n.y + 32}
@@ -150,40 +150,70 @@ function Hero() {
         </div>
       </div>
 
-      {/* row 4 — data (cols 1–2) */}
+      {/* row 4 — txfetch crypto search (cols 1–2) */}
       <div className={`${styles.cell} ${styles.data}`} data-reveal>
         <div className={styles.dataWrap}>
           <div className={`${styles.dataCard} ${styles.data1}`}>
-            <div className={styles.dataHeader}>&quot;05-05-2026&quot;</div>
+            <div className={styles.dataHeader}>query · tron</div>
+            <div className={styles.dataRows}>
+              <div className={styles.dataRow}>
+                <span>date</span>
+                <span>07.04.2026</span>
+              </div>
+              <div className={styles.dataRow}>
+                <span>time</span>
+                <span>17:38:00 UTC</span>
+              </div>
+              <div className={styles.dataRow}>
+                <span>coin</span>
+                <span>USDT</span>
+              </div>
+            </div>
           </div>
           <div className={`${styles.dataCard} ${styles.data2}`}>
-            <div className={styles.dataHeader}>&quot;05-06-2026&quot;</div>
+            <div className={styles.dataHeader}>filters</div>
+            <div className={styles.dataRows}>
+              <div className={styles.dataRow}>
+                <span>amount</span>
+                <span>800</span>
+              </div>
+              <div className={styles.dataRow}>
+                <span>memo</span>
+                <span>—</span>
+              </div>
+              <div className={styles.dataRow}>
+                <span>range</span>
+                <span>±5 min</span>
+              </div>
+              <div className={styles.dataRow}>
+                <span>tolerance</span>
+                <span>±1%</span>
+              </div>
+            </div>
           </div>
           <div className={`${styles.dataCard} ${styles.data3}`}>
-            <div className={styles.dataHeader}>&quot;05-07-2026&quot;</div>
+            <div className={styles.dataHeader}>candidates · 2</div>
             <table className={styles.table}>
               <thead>
                 <tr>
-                  <th>chain</th>
-                  <th>coin</th>
-                  <th>amount($)</th>
+                  <th>txid</th>
+                  <th>conf</th>
+                  <th>amount</th>
+                  <th>time</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>TRON</td>
-                  <td>USDT</td>
-                  <td>97.49</td>
+                  <td>6d2902a3ad…</td>
+                  <td className={styles.confHi}>100%</td>
+                  <td>800.00</td>
+                  <td>17:38:00</td>
                 </tr>
                 <tr>
-                  <td>BSC</td>
-                  <td>BNB</td>
-                  <td>332.00</td>
-                </tr>
-                <tr>
-                  <td>BTC</td>
-                  <td>BTC</td>
-                  <td>0.040</td>
+                  <td>7ac5197403…</td>
+                  <td>74%</td>
+                  <td>797.80</td>
+                  <td>17:38:15</td>
                 </tr>
               </tbody>
             </table>
@@ -196,7 +226,13 @@ function Hero() {
 
       {/* row 4 — graph analytics (cols 5–6) */}
       <div className={`${styles.cell} ${styles.graph}`} data-reveal>
-        <GraphSvg />
+        <div className={styles.graphCard}>
+          <div className={styles.graphHeader}>
+            <span>link graph</span>
+            <span>5 nodes · 5 edges</span>
+          </div>
+          <GraphSvg />
+        </div>
       </div>
 
       {/* row 5 — empty bottom row with visible column dividers */}

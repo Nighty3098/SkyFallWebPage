@@ -12,7 +12,7 @@ html {
   overflow-x: hidden;
   scroll-behavior: auto !important;
   scrollbar-width: thin;
-  scrollbar-color: var(--nf-border) var(--nf-bg);
+  scrollbar-color: var(--border-strong) var(--bg);
 }
 
 ::-webkit-scrollbar {
@@ -20,16 +20,16 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--nf-bg);
+  background: var(--bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--nf-border);
+  background: var(--border-strong);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--nf-blue);
+  background: var(--cream);
 }
 
 html.lenis, html.lenis body {
@@ -50,10 +50,11 @@ html.lenis, html.lenis body {
 
 body {
   color: var(--fg);
-  background: var(--nf-bg);
-  font-size: clamp(12px, 0.85vw, 72px);
-  font-family: var(--font-display);
-  font-weight: 300;
+  background: var(--bg);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.55;
   min-height: 100vh;
   width: 100vw;
   overflow-x: hidden;
@@ -82,33 +83,48 @@ a {
 }
 
 :focus-visible {
-  outline: 2px solid var(--lime);
+  outline: 2px solid var(--rose-deep);
   outline-offset: 3px;
-  border-radius: 2px;
+  border-radius: 6px;
 }
 
 ::selection {
-  background: var(--lime);
-  color: var(--nf-bg);
+  background: var(--cream);
+  color: var(--bg);
 }
 
-/* shared section label / title */
+/* ===== alcove-style shared primitives ===== */
+
+/* small bold section label */
 .section-label {
-  font-family: var(--font-mono);
-  font-size: 1rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--nf-cyan);
-  margin-bottom: 1rem;
+  color: var(--fg-muted);
+  margin-bottom: 1.25rem;
 }
 
+.section-label::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cream);
+  opacity: 0.55;
+}
+
+/* big bold headline */
 .section-title {
-  font-family: var(--font-mono);
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
   line-height: 1.05;
   color: var(--fg-bright);
+  font-size: clamp(2.1rem, 4.5vw, 3.4rem);
 }
 
 @media (prefers-reduced-motion: reduce) {

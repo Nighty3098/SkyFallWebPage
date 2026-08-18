@@ -1,44 +1,35 @@
 :root {
-  /* nightfly base */
-  --nf-bg: #011627;
-  --nf-bg-deep: #010a14;
-  --nf-bg-elevated: #0b2942;
-  --nf-bg-code: #020e1a;
-  --nf-border: #1d3b53;
-  --nf-border-soft: #123049;
+  /* alcove dark - stone + cream */
+  --bg: #1c1917;
+  --bg-deep: #141110;
+  --bg-elevated: #292524;
+  --bg-panel: rgba(245, 229, 213, 0.04);
+  --bg-code: #191514;
 
-  /* nightfly text */
-  --fg: #bdc1c6;
-  --fg-bright: #eeeeee;
-  --fg-muted: #7c8f8f;
-  --fg-dim: #5b7186;
+  --border: rgba(245, 229, 213, 0.09);
+  --border-strong: rgba(245, 229, 213, 0.17);
+  --border-soft: rgba(245, 229, 213, 0.045);
 
-  /* nightfly accents */
-  --nf-blue: #82aaff;
-  --nf-cyan: #7fdbca;
-  --nf-green: #a1cd5e;
-  --nf-yellow: #e3d18a;
-  --nf-orange: #f78c6c;
-  --nf-red: #fc514e;
-  --nf-purple: #c792ea;
-  --nf-pink: #ff5874;
-  --nf-white: #d6deeb;
+  /* cream text */
+  --ink: #f5e5d5;
+  --cream: #f5e5d5;
+  --fg: #f5e5d5;
+  --fg-bright: #fbf4ec;
+  --fg-muted: rgba(245, 229, 213, 0.55);
+  --fg-dim: rgba(245, 229, 213, 0.32);
 
-  /* structural tokens */
-  --lime: #a1cd5e;
-  --washed-green: #a1cd5e;
-  --periwinkle: #82aaff;
-  --teal-panel: #0b2942;
-  --violet-panel: #2a2052;
-  --ink: #011627;
-  --card: rgba(11, 41, 66, 0.78);
-  --card-solid: #0a2740;
-  --line: rgba(255, 255, 255, 0.09);
-  --line-soft: rgba(255, 255, 255, 0.05);
+  /* accents */
+  --rose: #fda4af;
+  --rose-deep: #fb7185;
+  --purple: #d8b4fe;
+  --purple-deep: #c084fc;
 
-  --font-display: "Space Grotesk", system-ui, sans-serif;
-  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  --card: rgba(41, 37, 36, 0.55);
+  --shadow: 0 24px 54px -24px rgba(0, 0, 0, 0.75);
 
-  --max-w: 1160px;
+  --font-sans: "Nunito", system-ui, -apple-system, sans-serif;
+  --font-display: "Nunito", system-ui, -apple-system, sans-serif;
+  --font-mono: "Nunito", system-ui, sans-serif;
+
+  --max-w: 1240px;
 }

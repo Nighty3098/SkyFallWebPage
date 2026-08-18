@@ -12,7 +12,7 @@ function prefersReducedMotion() {
 function isDesktop() {
   return typeof window !== 'undefined' &&
     typeof window.matchMedia === 'function' &&
-    window.matchMedia('(min-width: 1024px) and (pointer: fine)').matches
+    window.matchMedia('(min-width: 1024px) and (hover: hover) and (pointer: fine)').matches
 }
 
 export default function SmoothScroll({ children }: { readonly children: ReactNode }) {

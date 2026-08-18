@@ -18,8 +18,8 @@ const steps = [
   },
   {
     title: 'Report',
-    desc: 'Export a clean intelligence report - or let local Ollama write it for you. Data never leaves your machine.',
-    tags: ['ollama', 'pdf', 'json'],
+    desc: 'Export a clean intelligence report - or let LLM write it for you. Data never leaves your machine.',
+    tags: ['llm', 'pdf', 'json'],
   },
 ]
 
@@ -27,7 +27,6 @@ export default function Steps() {
   return (
     <section className={styles.section} id="workflow">
       <header className={styles.header}>
-        <p className="section-label">Workflow</p>
         <h2 className="section-title">
           From lead to report.
         </h2>

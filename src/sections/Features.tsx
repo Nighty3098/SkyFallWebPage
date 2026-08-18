@@ -81,7 +81,7 @@ const features = [
   },
   {
     title: 'AI Report',
-    desc: 'Automated intelligence reports via local Ollama - no data ever leaves your machine.',
+    desc: 'Automated intelligence reports via local LLM - no data ever leaves your machine.',
     img: '/assets/imgs/ai_report.png',
     wide: false,
   },
@@ -91,7 +91,6 @@ export default function Features() {
   return (
     <section className={styles.section} id="modules">
       <header className={styles.header}>
-        <p className="section-label">Modules</p>
         <h2 className="section-title">
           Fourteen tools. One case file.
         </h2>

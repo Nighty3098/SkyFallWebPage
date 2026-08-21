@@ -1,240 +1,123 @@
 .hero {
   position: relative;
-  min-height: 100vh;
   width: 100%;
-  padding: clamp(8.5rem, 17vh, 12.5rem) 1.5rem clamp(5rem, 10vh, 7rem);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  height: 100svh;
   overflow: hidden;
+  background: #000;
 }
 
-/* soft cream glow centered behind the headline */
-.glow {
+.heroBg {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(50% 50%,50% 50%,50% 50%,50% 50%);
+  will-change: clip-path;
+}
+
+.heroBg img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: translate(-50%, -50%) scale(1.72);
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+}
+
+/* ===== solid black text card ===== */
+
+.card {
+  --card-width: clamp(360px, 25vw, 460px);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: min(900px, 120vw);
-  height: 62%;
-  background: radial-gradient(
-    50% 55% at 50% 50%,
-    rgba(245, 229, 213, 0.1),
-    transparent 70%
-  );
-  pointer-events: none;
-}
-
-/* ===== intro ===== */
-.intro {
-  position: relative;
-  z-index: 1;
-  max-width: 1020px;
-  margin: 0 auto;
+  width: var(--card-width);
+  aspect-ratio: 368 / 527;
+  padding: calc(var(--card-width) * 0.05);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 2rem;
+  background-color: #000;
+  color: #fff;
+  clip-path: polygon(0% 100%,100% 100%,100% 100%,0% 100%);
+  container-type: inline-size;
+  z-index: 5;
+}
+
+.topLeft {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: calc(var(--card-width) * 0.02);
+}
+
+.bottomRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: auto;
+}
+
+.label {
+  font-size: clamp(0.5rem, 6cqi, 0.95rem);
+  font-weight: 500;
+  color: gray;
+  line-height: 1;
+  margin-left: 0.3em;
+  margin-bottom: 0.3em;
 }
 
 .title {
-  font-family: var(--font-display);
-  font-size: clamp(3.5rem, 9vw, 5.6rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.04;
-  color: var(--fg-bright);
-  margin: 0;
+  font-size: clamp(2rem, 21.5cqi, 6rem);
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+  color: #fff;
 }
 
-.actions {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 0.4rem;
-  flex-wrap: wrap;
-  justify-content: center;
+.edition {
+  font-size: clamp(3.5rem, 38cqi, 9rem);
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  line-height: 0.85;
+  color: #fff;
 }
 
-/* primary: dark stone pill with sliding icons */
-.primary {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 250px;
-  height: 62px;
-  font-size: 1.12rem;
-  font-weight: 700;
-  color: var(--cream);
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-strong);
-  border-radius: 17px;
-  padding: 0 1.5rem;
-  box-shadow: 0 20px 44px -18px rgba(0, 0, 0, 0.8);
-  transition:
-    background 0.25s,
-    transform 0.25s,
-    box-shadow 0.25s,
-    border-color 0.25s;
+.editionLong {
+  font-size: clamp(2rem, 12.5cqi, 3.5rem);
+  line-height: 1.15;
 }
 
-.primary:hover {
-  background: #35302c;
-  border-color: rgba(245, 229, 213, 0.3);
-  transform: translateY(-2px);
+.lineMask {
+  display: block;
+  overflow: hidden;
 }
 
-.primaryIcon {
-  position: absolute;
-  left: 1.5rem;
-  width: 24px;
-  height: 24px;
-  pointer-events: none;
-  transition: transform 0.3s, opacity 0.3s;
+.lineMask > span {
+  display: inline-block;
+  white-space: nowrap;
+  visibility: hidden;
+  will-change: transform;
 }
 
-.primaryText {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 4.5rem;
-  transition: transform 0.3s;
-}
+/* ===== progress bar & scroll hint ===== */
 
-.primaryArrow {
-  position: absolute;
-  right: 1.35rem;
-  width: 24px;
-  height: 24px;
-  opacity: 0;
-  transform: translateX(12px) scale(0.7);
-  transition:
-    transform 0.3s,
-    opacity 0.3s;
-}
-
-.primary:hover .primaryIcon {
-  transform: translateX(-22px) scale(0.7);
+.hero [data-hero-fade] {
   opacity: 0;
 }
 
-.primary:hover .primaryArrow {
-  opacity: 1;
-  transform: translateX(0) scale(1);
-}
-
-/* secondary: subtle cream-tinted pill with badge */
-.secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-  height: 62px;
-  font-size: 1.12rem;
-  font-weight: 700;
-  color: var(--fg);
-  background: var(--bg-panel);
-  border: 1px solid var(--border);
-  border-radius: 17px;
-  padding: 0 1.5rem;
-  transition:
-    background 0.25s,
-    border-color 0.25s;
-}
-
-.secondary:hover {
-  background: rgba(245, 229, 213, 0.08);
-  border-color: var(--border-strong);
-}
-
-.secondaryIcon {
-  width: 24px;
-  height: 24px;
-  flex: none;
-}
-
-.spinPart {
-  transform-origin: center;
-  animation: slowSpin 7s linear infinite;
-  color: rgba(245, 229, 213, 0.3);
-}
-
-@keyframes slowSpin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.pill {
-  font-size: 0.86rem;
-  font-weight: 800;
-  letter-spacing: 0.03em;
-  color: var(--cream);
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-strong);
-  border-radius: 10px;
-  padding: 0.42rem 0.7rem;
-}
-
-.sys {
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  color: var(--fg-dim);
-  margin: 0;
-}
-
-/* ===== responsive ===== */
-@media screen and (max-width: 640px) {
-  .hero {
-    padding: 7rem 1rem 4.5rem;
-  }
-
-  .actions {
-    width: 100%;
-  }
-
-  .primary {
-    width: 100%;
-    height: 52px;
-    gap: 0.95rem;
-  }
-
-  .primaryIcon {
-    position: static;
-    width: 21px;
-    height: 21px;
-  }
-
-  .primaryText {
-    position: static;
-    padding: 0;
-    font-size: 1rem;
-  }
-
-  .primaryArrow {
-    display: none;
-  }
-
-  .primary:hover .primaryIcon {
-    transform: none;
-    opacity: 1;
-  }
-
-  .secondary {
-    width: 100%;
-    height: 52px;
-    justify-content: center;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .spinPart {
-    animation: none;
+@media screen and (max-width: 850px) {
+  .card {
+    --card-width: min(88vw, 360px);
   }
 }

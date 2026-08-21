@@ -1,0 +1,20 @@
+.row {
+  position: relative;
+  display: block;
+}
+
+.block {
+  position: absolute;
+  inset: 0;
+  background: var(--base-200);
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
+}
+
+.text {
+  position: relative;
+  display: inline-block;
+  opacity: 0;
+  will-change: transform;
+}

@@ -1,27 +1,27 @@
-import SmoothScroll from "@/components/SmoothScroll";
-import Nav from "@/components/Nav";
-import Hero from "@/sections/Hero";
-import Marquee from "@/components/Marquee";
-import Features from "@/sections/Features";
-import Steps from "@/sections/Steps";
-import Cta from "@/sections/Cta";
-import Footer from "@/sections/Footer";
-
-const marqueeText =
-  "Telegram Analyzer / Dorking / Username Search / Git Research / Graph Analytics / Domain Analyzer / Email OSINT / Phone OSINT / Crypto Analysis / File Analysis / Steganography / MCP Server / AI Report";
+import { useScrollRefreshOnLoad } from '@/lib/gsap'
+import SmoothScroll from '@/components/SmoothScroll'
+import Nav from '@/components/Nav'
+import Noise from '@/components/Noise'
+import Hero from '@/sections/Hero'
+import Manifesto from '@/sections/Manifesto'
+import Modules from '@/sections/Modules'
+import Workflow from '@/sections/Workflow'
+import Footer from '@/sections/Footer'
 
 export default function App() {
+  useScrollRefreshOnLoad()
+
   return (
     <SmoothScroll>
       <Nav />
       <main>
         <Hero />
-        <Marquee text={marqueeText} />
-        <Features />
-        <Steps />
-        <Cta />
+        <Manifesto />
+        <Modules />
+        <Workflow />
       </main>
       <Footer />
+      <Noise opacity={0.4} />
     </SmoothScroll>
-  );
+  )
 }

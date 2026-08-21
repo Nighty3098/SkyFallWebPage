@@ -1,35 +1,21 @@
 :root {
-  /* alcove dark - stone + cream */
-  --bg: #1c1917;
-  --bg-deep: #141110;
-  --bg-elevated: #292524;
-  --bg-panel: rgba(245, 229, 213, 0.04);
-  --bg-code: #191514;
+  /* base palette */
+  --base-100: #ffffff;
+  --base-200: #3a3a3a;
+  --base-300: #0f0f0f;
 
-  --border: rgba(245, 229, 213, 0.09);
-  --border-strong: rgba(245, 229, 213, 0.17);
-  --border-soft: rgba(245, 229, 213, 0.045);
+  --bg: var(--base-300);
+  --fg: var(--base-100);
+  --fg-muted: rgba(255, 255, 255, 0.6);
+  --fg-dim: rgba(255, 255, 255, 0.35);
 
-  /* cream text */
-  --ink: #f5e5d5;
-  --cream: #f5e5d5;
-  --fg: #f5e5d5;
-  --fg-bright: #fbf4ec;
-  --fg-muted: rgba(245, 229, 213, 0.55);
-  --fg-dim: rgba(245, 229, 213, 0.32);
+  --border: rgba(255, 255, 255, 0.12);
+  --border-soft: rgba(255, 255, 255, 0.06);
 
-  /* accents */
-  --rose: #fda4af;
-  --rose-deep: #fb7185;
-  --purple: #d8b4fe;
-  --purple-deep: #c084fc;
+  --font-sans: "Satoshi", system-ui, -apple-system, sans-serif;
+  --font-display: "Satoshi", system-ui, -apple-system, sans-serif;
+  --font-mono: "Satoshi", system-ui, sans-serif;
 
-  --card: rgba(41, 37, 36, 0.55);
-  --shadow: 0 24px 54px -24px rgba(0, 0, 0, 0.75);
-
-  --font-sans: "Nunito", system-ui, -apple-system, sans-serif;
-  --font-display: "Nunito", system-ui, -apple-system, sans-serif;
-  --font-mono: "Nunito", system-ui, sans-serif;
-
-  --max-w: 1240px;
+  --max-w: 1440px;
+  --pad-x: clamp(1.25rem, 3vw, 3rem);
 }

@@ -2,12 +2,7 @@ import { useEffect, type ReactNode } from 'react'
 import Lenis from 'lenis'
 // @ts-ignore
 import 'lenis/dist/lenis.css'
-
-function prefersReducedMotion() {
-  return typeof window !== 'undefined' &&
-    typeof window.matchMedia === 'function' &&
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches
-}
+import { gsap, ScrollTrigger, prefersReducedMotion } from '@/lib/gsap'
 
 function isDesktop() {
   return typeof window !== 'undefined' &&
@@ -20,24 +15,25 @@ export default function SmoothScroll({ children }: { readonly children: ReactNod
     if (prefersReducedMotion() || !isDesktop()) return
 
     const lenis = new Lenis({
-      lerp: 0.045,
+      lerp: 0.09,
       smoothWheel: true,
-      wheelMultiplier: 0.8,
-      syncTouch: true,
-      touchMultiplier: 0.8,
+      wheelMultiplier: 0.9,
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       overscroll: false,
       prevent: (node) => node.closest('[data-lenis-prevent]') !== null,
     })
 
-    function raf(time: number) {
-      lenis.raf(time)
-      requestAnimationFrame(raf)
-    }
-    requestAnimationFrame(raf)
+    lenis.on('scroll', ScrollTrigger.update)
 
-    return () => { lenis.destroy() }
+    const raf = (time: number) => lenis.raf(time * 1000)
+    gsap.ticker.add(raf)
+    gsap.ticker.lagSmoothing(0)
+
+    return () => {
+      gsap.ticker.remove(raf)
+      lenis.destroy()
+    }
   }, [])
 
   return <>{children}</>

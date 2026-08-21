@@ -26,6 +26,6 @@ Static output goes to `dist/`.
 - [Vite](https://vitejs.dev/)
 - [React 18](https://react.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [GSAP](https://gsap.com/) — marquee ticker
+- [GSAP](https://gsap.com/) + ScrollTrigger — pinned manifesto, block-reveal transitions
 - [Lenis](https://lenis.studiofreight.com/) — smooth scrolling
-- [Outfit](https://fonts.google.com/specimen/Outfit) — brand font
+- [Satoshi](https://fontshare.com/fonts/satoshi) — brand font

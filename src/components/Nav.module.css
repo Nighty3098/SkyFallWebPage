@@ -35,9 +35,10 @@
 /* logo */
 
 .logo {
-  font-size: 1.05rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
   transition: opacity 0.3s ease;
 }
 
@@ -176,10 +177,11 @@
 }
 
 .overlayLink {
+  font-family: var(--font-display);
   display: inline-block;
   font-size: clamp(3.5rem, 12vw, 6rem);
-  font-weight: 600;
-  letter-spacing: -0.035em;
+  font-weight: 400;
+  letter-spacing: 0.01em;
   line-height: 0.95;
 }
 

@@ -46,10 +46,11 @@
 }
 
 .text {
+  font-family: var(--font-display);
   font-size: clamp(2.5rem, 12vw, 3.5rem);
-  font-weight: 800;
+  font-weight: 400;
+  letter-spacing: 0.01em;
   line-height: 105%;
-  letter-spacing: -0.02em;
   color: #fff;
   width: fit-content;
 }

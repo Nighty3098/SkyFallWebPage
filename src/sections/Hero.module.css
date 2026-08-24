@@ -78,23 +78,25 @@
 }
 
 .title {
+  font-family: var(--font-display);
   font-size: clamp(2rem, 21.5cqi, 6rem);
-  font-weight: 650;
-  letter-spacing: -0.035em;
+  font-weight: 400;
+  letter-spacing: 0.01em;
   line-height: 0.95;
   color: #fff;
 }
 
 .edition {
-  font-size: clamp(3.5rem, 38cqi, 9rem);
-  font-weight: 650;
-  letter-spacing: -0.035em;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 38cqi, 9rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
   line-height: 0.85;
   color: #fff;
 }
 
 .editionLong {
-  font-size: clamp(2rem, 12.5cqi, 3.5rem);
+  font-size: clamp(2rem, 15cqi, 4rem);
   line-height: 1.15;
 }
 

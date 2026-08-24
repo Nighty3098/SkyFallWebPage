@@ -21,7 +21,7 @@ export default function RevealText({
   scrollTrigger = false,
   active = true,
   delay = 0,
-  stagger = 0.12,
+  stagger = 0.14,
 }: RevealTextProps) {
   const rootRef = useRef<HTMLElement>(null)
 
@@ -30,14 +30,15 @@ export default function RevealText({
     if (!root || !active) return
 
     const ctx = gsap.context(() => {
-      const blocks = root.querySelectorAll<HTMLElement>(`.${styles.block}`)
-      const texts = root.querySelectorAll<HTMLElement>(`.${styles.text}`)
+      const words = Array.from(root.querySelectorAll<HTMLElement>(`.${styles.word}`))
+      const blocks = words.map((w) => w.querySelector<HTMLElement>(`.${styles.block}`))
 
       if (prefersReducedMotion()) {
         gsap.set(blocks, { scaleX: 0 })
-        gsap.set(texts, { opacity: 1, y: 0 })
         return
       }
+
+      gsap.set(words, { opacity: 0 })
 
       const tl = gsap.timeline({
         delay,
@@ -52,16 +53,23 @@ export default function RevealText({
           : {}),
       })
 
-      tl.set(texts, { opacity: 1 }, 0)
-        .to(blocks, { scaleX: 1, duration: 0.55, ease: 'power3.inOut', stagger }, 0)
-        .set(blocks, { transformOrigin: 'right center' })
-        .to(blocks, { scaleX: 0, duration: 0.55, ease: 'power3.inOut', stagger }, 0.5)
-        .fromTo(
-          texts,
-          { y: '0.35em' },
-          { y: '0em', duration: 0.7, ease: 'hop', stagger },
-          0.35,
-        )
+      words.forEach((word, i) => {
+        const at = i * stagger
+        tl.set(word, { opacity: 1 }, at)
+        const block = blocks[i]
+        if (block) {
+          tl.to(
+            block,
+            {
+              scaleX: 0,
+              duration: 0.22,
+              ease: 'power2.inOut',
+              transformOrigin: 'right center',
+            },
+            at + 0.05,
+          )
+        }
+      })
     }, root)
 
     return () => ctx.revert()
@@ -69,10 +77,14 @@ export default function RevealText({
 
   return (
     <Tag className={className} ref={rootRef as never}>
-      {lines.map((line, i) => (
-        <span key={i} className={styles.row}>
-          <span className={styles.block} aria-hidden="true" />
-          <span className={styles.text}>{line}</span>
+      {lines.map((line, li) => (
+        <span className={styles.row} key={li}>
+          {line.split(' ').map((word, wi) => (
+            <span className={styles.word} key={wi}>
+              <span className={styles.block} aria-hidden="true" />
+              <span className={styles.text}>{word}</span>
+            </span>
+          ))}
         </span>
       ))}
     </Tag>

@@ -1,20 +1,30 @@
 .row {
-  position: relative;
   display: block;
+  white-space: nowrap;
+}
+
+.word {
+  position: relative;
+  display: inline-block;
+  padding: 0.08em 0.06em;
+  margin-right: 0.12em;
 }
 
 .block {
   position: absolute;
   inset: 0;
-  background: var(--base-200);
-  transform: scaleX(0);
+  background: rgb(60, 60, 60);
   transform-origin: left center;
-  will-change: transform;
+  z-index: 1;
 }
 
 .text {
   position: relative;
-  display: inline-block;
-  opacity: 0;
-  will-change: transform;
+  z-index: 0;
+}
+
+@media screen and (max-width: 700px) {
+  .row {
+    white-space: normal;
+  }
 }

@@ -21,6 +21,10 @@ const modules = [
     desc: "Bluesky, Mastodon and Instagram profiles — bio, followers, posts and handle matches.",
   },
   {
+    title: "Reddit OSINT",
+    desc: "Archived posts, comments and removed content, subreddits, identifiers and timezone estimates.",
+  },
+  {
     title: "Dorking",
     desc: "7,944 Google dorks across 14 categories via DuckDuckGo or SearXNG.",
   },
@@ -82,7 +86,7 @@ const modules = [
   },
   {
     title: "MCP Server",
-    desc: "80 tools that plug SkyFall into AI agents and LLM workflows.",
+    desc: "89 tools that plug SkyFall into AI agents and LLM workflows.",
   },
   {
     title: "Cases",
@@ -122,7 +126,7 @@ export default function Modules() {
         <RevealText
           as="h2"
           className="section-title"
-          lines={["21 tools.", "One case file."]}
+          lines={["22 tools.", "One case file."]}
           scrollTrigger
         />
         <p className={styles.subtitle}>

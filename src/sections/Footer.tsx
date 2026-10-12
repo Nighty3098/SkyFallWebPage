@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
 import { INSTALL_COMMAND, useCopyInstallCommand } from "@/lib/install";
 import styles from "./Footer.module.css";
+import RevealText from "@/components/RevealText";
 
 export default function Footer() {
   const rootRef = useRef<HTMLElement>(null);
@@ -33,8 +34,16 @@ export default function Footer() {
     <footer className={styles.footer} id="contacts" ref={rootRef}>
       <div className={styles.center}>
         <span className={styles.label} data-footer-fade>
-          Install
+          Available for unix & windows on github
         </span>
+        <header className={styles.header}>
+          <RevealText
+            as="h2"
+            className="section-title"
+            lines={["Install"]}
+            scrollTrigger
+          />
+        </header>
         <div className={styles.install} data-footer-fade>
           <span className={styles.prompt} aria-hidden="true">
             $

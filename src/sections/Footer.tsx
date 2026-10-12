@@ -1,9 +1,23 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
 import styles from "./Footer.module.css";
 
+const installCommand =
+  "curl -fsSL https://raw.githubusercontent.com/Nighty3098/SkyFall/main/install.sh | bash";
+
 export default function Footer() {
   const rootRef = useRef<HTMLElement>(null);
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(installCommand);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2000);
+    } catch {
+      /* clipboard unavailable */
+    }
+  };
 
   useEffect(() => {
     const root = rootRef.current;
@@ -31,17 +45,22 @@ export default function Footer() {
     <footer className={styles.footer} id="contacts" ref={rootRef}>
       <div className={styles.center}>
         <span className={styles.label} data-footer-fade>
-          Download
+          Install
         </span>
-        <a
-          href="https://github.com/Nighty3098/SkyFall/"
-          target="_blank"
-          rel="noreferrer"
-          className={styles.main}
-          data-footer-fade
-        >
-          SOURCE
-        </a>
+        <div className={styles.install} data-footer-fade>
+          <span className={styles.prompt} aria-hidden="true">
+            $
+          </span>
+          <code className={styles.code}>{installCommand}</code>
+          <button
+            type="button"
+            className={styles.copy}
+            onClick={handleCopy}
+            aria-label="Copy install command"
+          >
+            {copied ? "Copied" : "Copy"}
+          </button>
+        </div>
       </div>
 
       <p className={styles.copyright} data-footer-fade>

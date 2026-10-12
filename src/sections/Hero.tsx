@@ -1,9 +1,11 @@
 import { useEffect, useRef } from 'react'
 import { gsap, prefersReducedMotion } from '@/lib/gsap'
+import { useCopyInstallCommand } from '@/lib/install'
 import styles from './Hero.module.css'
 
 export default function Hero() {
   const rootRef = useRef<HTMLElement>(null)
+  const { copied, copy } = useCopyInstallCommand()
 
   useEffect(() => {
     const root = rootRef.current
@@ -90,6 +92,15 @@ export default function Hero() {
         </div>
       </div>
 
+      <button
+        type="button"
+        className={styles.copyBtn}
+        onClick={copy}
+        aria-label="Copy install command"
+        data-hero-fade
+      >
+        {copied ? 'Copied' : 'Copy install command'}
+      </button>
     </section>
   )
 }

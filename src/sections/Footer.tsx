@@ -1,23 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
+import { INSTALL_COMMAND, useCopyInstallCommand } from "@/lib/install";
 import styles from "./Footer.module.css";
-
-const installCommand =
-  "curl -fsSL https://raw.githubusercontent.com/Nighty3098/SkyFall/main/install.sh | bash";
 
 export default function Footer() {
   const rootRef = useRef<HTMLElement>(null);
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(installCommand);
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 2000);
-    } catch {
-      /* clipboard unavailable */
-    }
-  };
+  const { copied, copy } = useCopyInstallCommand();
 
   useEffect(() => {
     const root = rootRef.current;
@@ -51,11 +39,11 @@ export default function Footer() {
           <span className={styles.prompt} aria-hidden="true">
             $
           </span>
-          <code className={styles.code}>{installCommand}</code>
+          <code className={styles.code}>{INSTALL_COMMAND}</code>
           <button
             type="button"
             className={styles.copy}
-            onClick={handleCopy}
+            onClick={copy}
             aria-label="Copy install command"
           >
             {copied ? "Copied" : "Copy"}

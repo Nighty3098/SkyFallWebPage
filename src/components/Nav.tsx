@@ -1,84 +1,87 @@
-import { useEffect, useRef, useState } from 'react'
-import { gsap, prefersReducedMotion } from '@/lib/gsap'
-import styles from './Nav.module.css'
+import { useEffect, useRef, useState } from "react";
+import { gsap, prefersReducedMotion } from "@/lib/gsap";
+import styles from "./Nav.module.css";
 
 const links = [
-  { label: 'Modules', href: '#modules' },
-  { label: 'Workflow', href: '#workflow' },
-]
+  { label: "Modules", href: "#modules" },
+  { label: "Workflow", href: "#workflow" },
+];
 
 export default function Nav() {
-  const rootRef = useRef<HTMLElement>(null)
-  const overlayRef = useRef<HTMLDivElement>(null)
-  const [open, setOpen] = useState(false)
+  const rootRef = useRef<HTMLElement>(null);
+  const overlayRef = useRef<HTMLDivElement>(null);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const items = rootRef.current?.querySelectorAll('[data-nav-item]')
-    const scrollDown = document.querySelector(`.${styles.scrollDown}`)
-    if (!items?.length) return
+    const items = rootRef.current?.querySelectorAll("[data-nav-item]");
+    const scrollDown = document.querySelector(`.${styles.scrollDown}`);
+    if (!items?.length) return;
     if (prefersReducedMotion()) {
-      gsap.set(items, { visibility: 'visible' })
-      gsap.set(scrollDown, { opacity: 0.5 })
-      return
+      gsap.set(items, { visibility: "visible" });
+      gsap.set(scrollDown, { opacity: 0.5 });
+      return;
     }
-    gsap.set(items, { yPercent: 120, visibility: 'visible' })
+    gsap.set(items, { yPercent: 120, visibility: "visible" });
     gsap.to(items, {
       yPercent: 0,
       duration: 1,
-      ease: 'hop',
+      ease: "hop",
       stagger: 0.08,
       delay: 0.2,
-    })
+    });
     gsap.fromTo(
       scrollDown,
       { opacity: 0 },
-      { opacity: 0.5, duration: 0.8, delay: 1.2, ease: 'power2.out' },
-    )
-  }, [])
+      { opacity: 0.5, duration: 0.8, delay: 1.2, ease: "power2.out" },
+    );
+  }, []);
 
   useEffect(() => {
-    const overlay = overlayRef.current
-    if (!overlay) return
+    const overlay = overlayRef.current;
+    if (!overlay) return;
     if (prefersReducedMotion()) {
-      gsap.set(overlay, { display: open ? 'flex' : 'none' })
-      return
+      gsap.set(overlay, { display: open ? "flex" : "none" });
+      return;
     }
 
     if (open) {
-      gsap.set(overlay, { display: 'flex' })
+      gsap.set(overlay, { display: "flex" });
       gsap.fromTo(
         overlay,
         { yPercent: -100 },
-        { yPercent: 0, duration: 0.9, ease: 'hop' },
-      )
+        { yPercent: 0, duration: 0.9, ease: "hop" },
+      );
       gsap.fromTo(
-        overlay.querySelectorAll('[data-menu-item]'),
-        { y: '110%' },
-        { y: '0%', duration: 0.8, ease: 'hop', stagger: 0.06, delay: 0.3 },
-      )
+        overlay.querySelectorAll("[data-menu-item]"),
+        { y: "110%" },
+        { y: "0%", duration: 0.8, ease: "hop", stagger: 0.06, delay: 0.3 },
+      );
     } else {
       gsap.to(overlay, {
         yPercent: -100,
         duration: 0.7,
-        ease: 'hop',
-        onComplete: () => gsap.set(overlay, { display: 'none' }),
-      })
+        ease: "hop",
+        onComplete: () => gsap.set(overlay, { display: "none" }),
+      });
     }
-  }, [open])
+  }, [open]);
 
   useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : ''
+    document.body.style.overflow = open ? "hidden" : "";
     return () => {
-      document.body.style.overflow = ''
-    }
-  }, [open])
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
-  const handleAnchor = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (!href.startsWith('#')) return
-    e.preventDefault()
-    setOpen(false)
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
-  }
+  const handleAnchor = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    if (!href.startsWith("#")) return;
+    e.preventDefault();
+    setOpen(false);
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <>
@@ -107,20 +110,20 @@ export default function Nav() {
           </div>
 
           <a
-            href="https://t.me/Night3098"
+            href="https://github.com/Nighty3098/SkyFall"
             target="_blank"
             rel="noreferrer"
             className={`${styles.cta} ${styles.mask}`}
           >
             <span className={styles.inner} data-nav-item>
-              Get access
+              Download
             </span>
           </a>
         </div>
 
         <button
           type="button"
-          className={`${styles.menuBtn} ${open ? styles.hidden : ''}`}
+          className={`${styles.menuBtn} ${open ? styles.hidden : ""}`}
           onClick={() => setOpen(true)}
           aria-label="Open menu"
         >
@@ -132,20 +135,34 @@ export default function Nav() {
         </button>
       </nav>
 
-      <p className={`${styles.scrollDown} ${open ? styles.hidden : ''}`}>
+      <p className={`${styles.scrollDown} ${open ? styles.hidden : ""}`}>
         Scroll Down
       </p>
 
-      <div className={styles.overlay} ref={overlayRef} role="dialog" aria-modal="true">
+      <div
+        className={styles.overlay}
+        ref={overlayRef}
+        role="dialog"
+        aria-modal="true"
+      >
         <div className={styles.overlayTop}>
-          <span>SkyFall<sup>&reg;</sup></span>
-          <button type="button" onClick={() => setOpen(false)} aria-label="Close menu">
+          <span>
+            SkyFall<sup>&reg;</sup>
+          </span>
+          <button
+            type="button"
+            onClick={() => setOpen(false)}
+            aria-label="Close menu"
+          >
             Close
           </button>
         </div>
 
         <nav className={styles.overlayLinks} aria-label="Menu">
-          {[...links, { label: 'Get access', href: 'https://t.me/Night3098' }].map((l) => (
+          {[
+            ...links,
+            { label: "Get access", href: "https://t.me/Night3098" },
+          ].map((l) => (
             <span className={styles.overlayMask} key={l.label}>
               <a
                 href={l.href}
@@ -162,5 +179,5 @@ export default function Nav() {
         <p className={styles.overlayNote}>OSINT investigation toolkit</p>
       </div>
     </>
-  )
+  );
 }

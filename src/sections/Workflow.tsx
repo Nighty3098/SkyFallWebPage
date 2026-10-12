@@ -6,7 +6,7 @@ import styles from './Workflow.module.css'
 const steps = [
   {
     title: 'Collect',
-    desc: 'Start with any lead — username, phone, email, domain or wallet. SkyFall fans out across 15 modules.',
+    desc: 'Start with any lead — username, phone, email, domain or wallet. SkyFall fans out across 20+ modules.',
     tags: ['username', 'phone', 'email', 'domain', 'crypto'],
   },
   {

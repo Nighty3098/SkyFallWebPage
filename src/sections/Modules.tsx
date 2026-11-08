@@ -34,11 +34,11 @@ const modules = [
   },
   {
     title: "Graph Analytics",
-    desc: "Relationship graphs between users, channels and domains. 13 entity types.",
+    desc: "Investigation graphs with 13 entity types, built-in enrichment transforms, and custom transform plugins.",
   },
   {
     title: "Domain Analyzer",
-    desc: "WHOIS, DNS records, subdomain enumeration, SSL analysis, nmap scans.",
+    desc: "Recon in category tabs: DNS/SSL/headers/WAF, subdomains, CT, threat intel, WhoisFreaks history, DNS history, timeline, reverse WHOIS, IP security.",
   },
   {
     title: "Email OSINT",
@@ -86,7 +86,7 @@ const modules = [
   },
   {
     title: "MCP Server",
-    desc: "89 tools that plug SkyFall into AI agents and LLM workflows.",
+    desc: "96 tools that plug SkyFall into AI agents and LLM workflows.",
   },
   {
     title: "Cases",

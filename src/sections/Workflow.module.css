@@ -15,7 +15,7 @@
   grid-template-columns: clamp(3.5rem, 8vw, 8rem) minmax(0, 4fr) minmax(0, 6fr) minmax(0, 3fr);
   align-items: start;
   gap: clamp(1rem, 2.5vw, 2.5rem);
-  padding: clamp(1.75rem, 4vh, 3rem) 0;
+  padding: clamp(1.75rem, 4vh, 3rem) clamp(1rem, 2vw, 1.5rem);
   border-bottom: 1px solid var(--border-soft);
   transition: background 0.35s;
 }

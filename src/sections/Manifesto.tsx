@@ -4,19 +4,44 @@ import styles from "./Manifesto.module.css";
 
 const slides = [
   {
-    lines: ["Every footprint", "leaves a trace."],
+    lines: ["WHOIS history,", "DNS and timeline."],
     align: "center",
-    img: "/assets/imgs/username.png",
+    img: "/assets/imgs/web_whois.webp",
   },
   {
-    lines: ["Traces form patterns."],
+    lines: ["Recon by category,", "signal by signal."],
     align: "center",
-    img: "/assets/imgs/dorking.png",
+    img: "/assets/imgs/web_infra.webp",
   },
   {
-    lines: ["Patterns expose", "identity."],
+    lines: ["Surface risks", "before they spread."],
     align: "center",
-    img: "/assets/imgs/graph.png",
+    img: "/assets/imgs/web_security.webp",
+  },
+  {
+    lines: ["Leaks, pivots,", "exposed context."],
+    align: "center",
+    img: "/assets/imgs/leaks.webp",
+  },
+  {
+    lines: ["Archive voices", "across communities."],
+    align: "center",
+    img: "/assets/imgs/reddit.webp",
+  },
+  {
+    lines: ["Map channels,", "actors, links."],
+    align: "center",
+    img: "/assets/imgs/tg_analyze.webp",
+  },
+  {
+    lines: ["Code, commits,", "identities."],
+    align: "center",
+    img: "/assets/imgs/github.webp",
+  },
+  {
+    lines: ["Profiles converge", "into evidence."],
+    align: "center",
+    img: "/assets/imgs/social.webp",
   },
 ];
 

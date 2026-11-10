@@ -161,7 +161,7 @@ export default function Nav() {
         <nav className={styles.overlayLinks} aria-label="Menu">
           {[
             ...links,
-            { label: "Get access", href: "https://t.me/Night3098" },
+            { label: "Download", href: "https://github.com/Nighty3098/SkyFall" },
           ].map((l) => (
             <span className={styles.overlayMask} key={l.label}>
               <a

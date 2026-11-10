@@ -70,7 +70,7 @@
 }
 
 .links a::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   bottom: -5px;
@@ -94,8 +94,8 @@
   font-weight: 500;
   line-height: 1;
   padding: 0.65em 1.3em;
+  background-color: #000;
   border: 1px solid rgba(255, 255, 255, 0.28);
-  border-radius: 999px;
   transition:
     background-color 0.35s ease,
     color 0.35s ease,

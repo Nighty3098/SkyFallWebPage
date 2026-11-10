@@ -135,10 +135,6 @@ export default function Nav() {
         </button>
       </nav>
 
-      <p className={`${styles.scrollDown} ${open ? styles.hidden : ""}`}>
-        Scroll Down
-      </p>
-
       <div
         className={styles.overlay}
         ref={overlayRef}
@@ -161,7 +157,10 @@ export default function Nav() {
         <nav className={styles.overlayLinks} aria-label="Menu">
           {[
             ...links,
-            { label: "Download", href: "https://github.com/Nighty3098/SkyFall" },
+            {
+              label: "Download",
+              href: "https://github.com/Nighty3098/SkyFall",
+            },
           ].map((l) => (
             <span className={styles.overlayMask} key={l.label}>
               <a
